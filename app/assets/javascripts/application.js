@@ -14,3 +14,21 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+(function() {
+
+  function onClickTitleGoToRoot () {
+    var onLoad = function() {
+      $('#title').click(function() {
+        location.href = '/';
+      });
+    }
+
+    $(document).ready(onLoad)
+    $(window).bind('page:change', onLoad)
+  }
+
+  onClickTitleGoToRoot();
+
+
+}());

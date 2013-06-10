@@ -42,6 +42,7 @@
     background-image: url('/assets/sonitus.png');
     background-repeat: no-repeat;
     background-position: top left;
+    cursor: pointer;
   }
 
   #user {
@@ -60,4 +61,13 @@
   @media only screen and (max-width: 479px) {
     width: 80%;
   }
+
+  .button,
+  button,
+  input[type="submit"],
+  input[type="reset"],
+  input[type="button"] {
+    margin-bottom: 0;
+  }
 }
+
