@@ -2,4 +2,6 @@
   No albums added yet
 - else
   - @albums.each do |album|
-    .album.four.columns{id: "album_#{album.id}"}= image_tag 'http://placehold.it/420x420'
+    .album.four.columns{id: "album_#{album.id}"}
+      = image_tag 'http://placehold.it/420x420'
+      = album.long_title

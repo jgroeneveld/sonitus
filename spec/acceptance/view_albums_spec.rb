@@ -14,6 +14,8 @@ feature 'View albums' do
     album = Fabricate(:album, user: current_user)
     visit '/'
     expect(page).to have_css "div#album_#{album.id}"
+    expect(page).to have_content album.long_title
     expect(page).to_not have_content 'No albums added yet'
+
   end
 end
