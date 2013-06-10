@@ -1,0 +1,63 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+.flash {
+  border-radius: 4px;
+  padding: 0.5em 1em 0.5em 1em;
+  margin-bottom: 0.5em;
+
+  &#error-flash {
+    background-color: rgb(242, 222, 222);
+    border-color: rgb(238, 211, 215);
+    color: rgb(185, 74, 72);
+  }
+
+  &#notice-flash {
+    background-color: rgb(223, 240, 216);
+    border-color: rgb(214, 233, 198);
+    color: rgb(70, 136, 71);
+  }
+}
+
+
+.container {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+#head {
+  #title {
+    min-height: 55px;
+    background-image: url('/assets/sonitus.png');
+    background-repeat: no-repeat;
+    background-position: top left;
+  }
+
+  #user {
+    text-align: right;
+    display: inline-block;
+  }
+}
+
+
+.form-box {
+  width: 300px;
+  margin: auto;
+  background-color: #eee;
+  padding: 1em 2em 1em 2em;
+
+  @media only screen and (max-width: 479px) {
+    width: 80%;
+  }
+}
