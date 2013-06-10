@@ -28,6 +28,12 @@
     border-color: rgb(214, 233, 198);
     color: rgb(70, 136, 71);
   }
+
+  &#alert-flash {
+    background-color: rgb(252, 248, 227);
+    border-color: rgb(251, 238, 213);
+    color: rgb(192, 152, 83);
+  }
 }
 
 
@@ -69,5 +75,11 @@
   input[type="button"] {
     margin-bottom: 0;
   }
+}
+
+#error_explanation h2 {
+  font-size: 1em;
+  color: red;
+  font: 14px/21px "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 

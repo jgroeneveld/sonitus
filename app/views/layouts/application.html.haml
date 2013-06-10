@@ -18,12 +18,17 @@
           = link_to t(:sign_in), new_user_session_path
 
 
-    .sixteen.columns
-      - if !flash[:notice].nil?
-        .flash#notice-flash= flash[:notice]
+    - if !flash.empty?
+      .sixteen.columns
+        - if !flash[:notice].nil?
+          .flash#notice-flash= flash[:notice]
 
-      - if !flash[:error].nil?
-        .flash#error-flash= flash[:error]
+        - if !flash[:error].nil?
+          .flash#error-flash= flash[:error]
 
-    = yield
+        - if !flash[:alert].nil?
+          .flash#alert-flash= flash[:alert]
+
+    .row
+      = yield
 

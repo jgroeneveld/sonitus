@@ -1,5 +1,10 @@
 require 'spec_helper'
 
 describe User do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it '#albums' do
+    user = Fabricate(:user)
+    album = Fabricate(:album)
+    user.albums << album
+    expect(user.albums).to include album
+  end
 end
