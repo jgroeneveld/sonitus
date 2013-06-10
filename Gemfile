@@ -37,6 +37,7 @@ end
 
 group :development, :test do
   gem 'rspec-rails', '~> 2.0'
+  gem 'steak'
 end
 
 # Use ActiveModel has_secure_password
