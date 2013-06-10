@@ -1,3 +1,5 @@
-/ #album_1.album.four.columns= image_tag 'http://placehold.it/420x420'
-
-No albums added yet
+- if @albums.empty?
+  No albums added yet
+- else
+  - @albums.each do |album|
+    .album.four.columns{id: "album_#{album.id}"}= image_tag 'http://placehold.it/420x420'
