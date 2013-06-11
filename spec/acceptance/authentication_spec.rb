@@ -14,7 +14,6 @@ feature 'Authentication' do
       click_button 'Sign up'
 
       page.should have_content 'Welcome! You have signed up successfully'
-      User.where(email: 'harald@example.com').count.should == 1
     end
 
     scenario 'New user tries to register without entering form' do
