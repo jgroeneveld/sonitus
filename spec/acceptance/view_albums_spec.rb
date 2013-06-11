@@ -5,9 +5,11 @@ feature 'View albums' do
     user_is_logged_in
   end
 
-  scenario 'No albums saved' do
-    visit '/'
-    page.should have_content 'No albums added yet'
+  context "No albums saved" do
+    scenario 'Shows no albums message' do
+      visit '/'
+      page.should have_content 'No albums added yet'
+    end
   end
 
   scenario 'Show saved albums' do

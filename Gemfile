@@ -43,4 +43,7 @@ group :development, :test do
   gem 'fabrication'
   gem 'pry'
   gem 'shoulda-matchers'
+  gem 'guard'
+  gem 'guard-rspec'
+  gem 'rb-fsevent'
 end
