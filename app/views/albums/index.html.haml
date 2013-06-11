@@ -4,6 +4,7 @@
     - if current_users_collection?
       \- #{link_to 'Add one now', new_user_album_path(@user)}
 - else
+  #albums-controls.sixteen.columns #{link_to 'Add Album', new_user_album_path(@user)}
   - @albums.each do |album|
     .album.four.columns{id: "album_#{album.id}"}
       = image_tag 'http://placehold.it/420x420'

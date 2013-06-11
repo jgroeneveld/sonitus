@@ -13,9 +13,29 @@ class AlbumsController < ApplicationController
     @albums = @user.albums
   end
 
+  def new
+    @album = Album.new
+    @user = current_user
+  end
+
+  def create
+    @user = current_user
+    @album = Album.new album_params.merge(user: @user)
+
+    if @album.save
+      redirect_to user_albums_path(@user), :notice => 'Album was successfully created.'
+    else
+      render :action => "new"
+    end
+  end
+
   protected
 
   def current_users_collection?
     @user == current_user
+  end
+
+  def album_params
+    params.require(:album).permit(:title, :year, :artist)
   end
 end

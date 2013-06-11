@@ -1,0 +1,9 @@
+.sixteen.columns
+  .form-box
+    %h2 Add Album
+
+    = simple_form_for [@user, @album] do |f|
+      = f.input :artist
+      = f.input :title
+      = f.input :year
+      = f.submit 'Add Album'
