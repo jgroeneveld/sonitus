@@ -1,5 +1,6 @@
 class AlbumsController < ApplicationController
-  before_filter :authenticate_user!
+  before_action :authenticate_user!
+  before_action :set_user_to_current_user, except: :index
 
   helper_method :current_users_collection?
 
@@ -15,11 +16,9 @@ class AlbumsController < ApplicationController
 
   def new
     @album = Album.new
-    @user = current_user
   end
 
   def create
-    @user = current_user
     @album = Album.new album_params.merge(user: @user)
 
     if @album.save
@@ -29,8 +28,21 @@ class AlbumsController < ApplicationController
     end
   end
 
+  def edit
+    @album = @user.albums.find params[:id]
+  end
+
+  def update
+    @album = @user.albums.find params[:id]
+
+    if @album.update(album_params)
+      redirect_to user_albums_path(@user), :notice => 'Album was successfully updated.'
+    else
+      render :action => "edit"
+    end
+  end
+
   def destroy
-    @user = current_user
     @album = @user.albums.find params[:id]
 
     @album.destroy
@@ -45,5 +57,9 @@ class AlbumsController < ApplicationController
 
   def album_params
     params.require(:album).permit(:title, :year, :artist)
+  end
+
+  def set_user_to_current_user
+    @user = current_user
   end
 end

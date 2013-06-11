@@ -2,5 +2,5 @@
   = image_tag 'http://placehold.it/420x420'
   = album.long_title
   .controls
-    .edit edit
+    .edit= link_to t(:edit), edit_user_album_path(@user, album)
     .delete= link_to t(:delete), user_album_path(@user, album), method: :delete, remote: true

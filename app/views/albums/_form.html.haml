@@ -1,0 +1,8 @@
+.form-box
+  %h2= t("#{params[:action]}_album")
+
+  = simple_form_for [@user, @album] do |f|
+    = f.input :artist
+    = f.input :title
+    = f.input :year
+    = f.submit t("#{params[:action]}_album")
