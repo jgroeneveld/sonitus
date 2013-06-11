@@ -13,7 +13,7 @@ feature 'Authentication' do
       fill_in 'Password confirmation', with: '12345678'
       click_button 'Sign up'
 
-      page.should have_content 'Moin Harald'
+      page.should have_content 'Welcome! You have signed up successfully'
       User.where(email: 'harald@example.com').count.should == 1
     end
 
