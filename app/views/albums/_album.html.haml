@@ -1,0 +1,6 @@
+.album.four.columns{id: "album_#{album.id}"}
+  = image_tag 'http://placehold.it/420x420'
+  = album.long_title
+  .controls
+    .edit edit
+    .delete= link_to t(:delete), user_album_path(@user, album), method: :delete, remote: true

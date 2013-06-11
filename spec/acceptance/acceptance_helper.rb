@@ -8,3 +8,5 @@ Warden.test_mode!
 RSpec.configure do |config|
   config.after(:each) { Warden.test_reset! }
 end
+
+Capybara.javascript_driver = :webkit

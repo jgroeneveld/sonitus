@@ -42,10 +42,13 @@ end
 group :development, :test do
   gem 'rspec-rails', '~> 2.0'
   gem 'steak'
+  gem 'database_cleaner'
+  gem 'capybara-webkit'
   gem 'fabrication'
   gem 'pry'
   gem 'shoulda-matchers'
   gem 'guard'
   gem 'guard-rspec'
   gem 'rb-fsevent'
+  gem 'terminal-notifier-guard'
 end

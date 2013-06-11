@@ -3,9 +3,30 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .album {
+  position: relative;
   margin-top: 0.5em;
+
   img {
     width: 100%;
+  }
+
+  .controls {
+    display: none;
+
+    .edit {
+      position: absolute;
+      left: 5px;
+      top: 5px;
+    }
+
+    .delete {
+      position: absolute;
+      right: 5px;
+      top: 5px;
+    }
+    &.visible {
+      display: block;
+    }
   }
 }
 

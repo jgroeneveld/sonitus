@@ -29,6 +29,14 @@ class AlbumsController < ApplicationController
     end
   end
 
+  def destroy
+    @user = current_user
+    @album = @user.albums.find params[:id]
+
+    @album.destroy
+    render text: "OK"
+  end
+
   protected
 
   def current_users_collection?
