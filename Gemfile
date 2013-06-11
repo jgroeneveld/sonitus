@@ -42,4 +42,5 @@ group :development, :test do
   gem 'steak'
   gem 'fabrication'
   gem 'pry'
+  gem 'shoulda-matchers'
 end

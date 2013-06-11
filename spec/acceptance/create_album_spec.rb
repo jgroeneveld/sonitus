@@ -7,7 +7,7 @@ feature 'Create album' do
 
   scenario 'Empty Startpage' do
     visit '/'
-    expect(page).to have_link 'Add one now', href: '/albums/new'
+    page.should have_link 'Add one now', href: '/albums/new'
   end
 
 end

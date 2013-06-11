@@ -7,15 +7,14 @@ feature 'View albums' do
 
   scenario 'No albums saved' do
     visit '/'
-    expect(page).to have_content 'No albums added yet'
+    page.should have_content 'No albums added yet'
   end
 
   scenario 'Show saved albums' do
     album = Fabricate(:album, user: current_user)
     visit '/'
-    expect(page).to have_css "div#album_#{album.id}"
-    expect(page).to have_content album.long_title
-    expect(page).to_not have_content 'No albums added yet'
-
+    page.should have_css "div#album_#{album.id}"
+    page.should have_content album.long_title
+    page.should_not have_content 'No albums added yet'
   end
 end
