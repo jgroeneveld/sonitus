@@ -3,4 +3,4 @@
   = album.long_title
   .controls
     .edit= link_to t(:edit), edit_user_album_path(@user, album)
-    .delete= link_to t(:delete), user_album_path(@user, album), method: :delete, remote: true
+    .delete= link_to t(:delete), user_album_path(@user, album), method: :delete, remote: true, data: { confirm: 'Are you sure you want to delete this Album?' }

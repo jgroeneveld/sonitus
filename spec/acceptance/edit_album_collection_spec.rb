@@ -40,37 +40,36 @@ feature 'Edit album collection' do
   end
 
   context 'Deleting Albums' do
-    scenario 'Deleting Album disappears on current page', js: true do
-      visit user_albums_path(current_user)
-      click_link 'Edit Albums'
+    before(:each) { enter_edit_mode_and_delete_album }
 
-      page.should show_album @album
-      click_delete_button_for @album
+    scenario 'Asks for confirmation before deleting', js: true do
+      should_have_shown_confirm 'Are you sure you want to delete this Album?'
+    end
+
+    scenario 'Deleted Album disappears on current page', js: true do
       page.should_not show_album @album
     end
 
-    scenario 'Deleting Album disappears after reload', js: true do
-      visit user_albums_path(current_user)
-      click_link 'Edit Albums'
-
-      page.should show_album @album
-      click_delete_button_for @album
+    scenario 'Deleted Album stays gone after reload', js: true do
       visit current_path
       page.should_not show_album @album
     end
 
     scenario 'Deleting last Album shows initial message again', js: true do
-      visit user_albums_path(current_user)
-      click_link 'Edit Albums'
-
-      page.should show_album @album
-      click_delete_button_for @album
       page.should have_link 'Add one now', href: new_user_album_path(current_user)
     end
   end
 
 
   private
+
+  def enter_edit_mode_and_delete_album
+    visit user_albums_path(current_user)
+    click_link 'Edit Albums'
+
+    page.should show_album @album
+    click_delete_button_for @album
+  end
 
   def show_album_edit_controls
     have_selector '.album .controls.visible'
@@ -94,5 +93,10 @@ feature 'Edit album collection' do
 
   def click_edit_button_for(album)
     page.find("#album_#{album.id} .edit").click
+  end
+
+  def should_have_shown_confirm(msg)
+    page.driver.confirm_messages.should_not be_nil
+    page.driver.confirm_messages.should include msg
   end
 end
