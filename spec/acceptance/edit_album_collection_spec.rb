@@ -13,7 +13,7 @@ feature 'Edit album collection' do
 
   scenario 'Entering Edit Mode', js: true do
     visit user_albums_path(current_user)
-    click_link 'Edit Albums'
+    click_link I18n.t(:edit_albums)
 
     page.should show_album_edit_controls
     page.should show_album_edit_button
@@ -24,7 +24,7 @@ feature 'Edit album collection' do
   context 'Editing an Album' do
     scenario 'Clicking Edit Button', js: true do
       visit user_albums_path(current_user)
-      click_link 'Edit Albums'
+      click_link I18n.t(:edit_albums)
 
       click_edit_button_for @album
       current_path.should == edit_user_album_path(current_user, @album)
@@ -33,7 +33,7 @@ feature 'Edit album collection' do
     scenario 'Changing an Albums title' do
       visit edit_user_album_path(current_user, @album)
       fill_in 'Title', with: 'Was Anderes'
-      click_button 'Edit Album'
+      click_button I18n.t(:edit_album)
       @album.reload
       @album.title.should == 'Was Anderes'
     end
@@ -43,7 +43,7 @@ feature 'Edit album collection' do
     before(:each) { enter_edit_mode_and_delete_album }
 
     scenario 'Asks for confirmation before deleting', js: true do
-      should_have_shown_confirm 'Are you sure you want to delete this Album?'
+      should_have_shown_confirm I18n.t(:confirm_album_delete)
     end
 
     scenario 'Deleted Album disappears on current page', js: true do
@@ -56,7 +56,7 @@ feature 'Edit album collection' do
     end
 
     scenario 'Deleting last Album shows initial message again', js: true do
-      page.should have_link 'Add one now', href: new_user_album_path(current_user)
+      page.should have_link I18n.t(:add_one_now), href: new_user_album_path(current_user)
     end
   end
 
@@ -65,7 +65,7 @@ feature 'Edit album collection' do
 
   def enter_edit_mode_and_delete_album
     visit user_albums_path(current_user)
-    click_link 'Edit Albums'
+    click_link I18n.t(:edit_albums)
 
     page.should show_album @album
     click_delete_button_for @album

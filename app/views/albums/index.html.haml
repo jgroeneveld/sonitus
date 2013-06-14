@@ -1,11 +1,11 @@
 - if @albums.empty?
   .sixteen.columns
-    No albums added yet
+    = t :no_albums_added_yet
     - if current_users_collection?
-      \- #{link_to 'Add one now', new_user_album_path(@user)}
+      \- #{link_to t(:add_one_now), new_user_album_path(@user)}
 - else
   - if current_users_collection?
     #albums-controls.sixteen.columns
-      #{link_to 'Add Album', new_user_album_path(@user)}
-      \- #{link_to 'Edit Albums', '#', remote: true, id: 'edit-albums'}
+      #{link_to t(:new_album), new_user_album_path(@user)}
+      \- #{link_to t(:edit_albums), '#', remote: true, id: 'edit-albums'}
   = render @albums

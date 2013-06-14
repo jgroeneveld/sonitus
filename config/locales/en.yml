@@ -20,5 +20,16 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  edit_album: Edit Album
-  new_album: Add Album
+  edit_albums: Edit Albumsx
+  edit_album: Edit Albumx
+  new_album: Add Albumx
+  add_one_now: Add one nowx
+  confirm_album_delete: Are you sure you want to delete this Album?x
+  no_albums_added_yet: No albums added yetx
+
+  simple_form:
+    labels:
+      album:
+        title: 'Titlex'
+        artist: 'Artistx'
+        year: 'Yearx'

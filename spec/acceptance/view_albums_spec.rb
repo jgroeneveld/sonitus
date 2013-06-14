@@ -8,7 +8,7 @@ feature 'View albums' do
   context "No albums saved" do
     scenario 'Shows no albums message' do
       visit user_albums_path(current_user)
-      page.should have_content 'No albums added yet'
+      page.should have_content I18n.t(:no_albums_added_yet)
     end
   end
 
@@ -17,6 +17,6 @@ feature 'View albums' do
     visit user_albums_path(current_user)
     page.should have_css "div#album_#{album.id}"
     page.should have_content album.long_title
-    page.should_not have_content 'No albums added yet'
+    page.should_not have_content I18n.t(:no_albums_added_yet)
   end
 end
