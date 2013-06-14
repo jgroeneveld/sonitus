@@ -7,6 +7,10 @@ module HelperMethods
   def current_user
     @current_user
   end
+
+  def sft(scope, key)
+    I18n.t(key, scope: [:simple_form, :labels, scope])
+  end
 end
 
 RSpec.configuration.include HelperMethods, :type => :acceptance
