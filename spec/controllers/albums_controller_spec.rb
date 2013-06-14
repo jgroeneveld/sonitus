@@ -11,19 +11,23 @@ describe AlbumsController do
   let (:album_params) { Fabricate.attributes_for :album }
 
   describe '#index' do
-    it 'assigns the users albums' do
-      user = Fabricate :user_with_albums
-      get :index, user_id: user.id
+    context 'when a user is given' do
+      it 'assigns the users albums' do
+        user = Fabricate :user_with_albums
+        get :index, user_id: user.id
 
-      assigns(:user).should == user
-      assigns(:albums).should == user.albums
+        assigns(:user).should == user
+        assigns(:albums).should == user.albums
+      end
     end
 
-    it 'assigns the current users albums if no other user is given' do
-      get :index
+    context 'when no user is given' do
+      it 'assigns the current users albums' do
+        get :index
 
-      assigns(:user).should == current_user
-      assigns(:albums).should == current_user.albums
+        assigns(:user).should == current_user
+        assigns(:albums).should == current_user.albums
+      end
     end
   end
 
