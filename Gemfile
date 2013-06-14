@@ -51,4 +51,5 @@ group :development, :test do
   gem 'guard-rspec'
   gem 'rb-fsevent'
   gem 'terminal-notifier-guard'
+  gem 'faker'
 end

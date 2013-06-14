@@ -1,6 +1,6 @@
 Fabricator(:album) do
-  title 'Mutter'
-  artist 'Rammstein'
+  title { Faker::Lorem.words.join(" ") }
+  artist { Faker::Lorem.word }
   year 2001
   user { |params| params[:user] }
 end
