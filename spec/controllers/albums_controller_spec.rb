@@ -109,41 +109,17 @@ describe AlbumsController do
   end
 
   describe '#search' do
-    let(:album) { Fabricate(:album, title: 'Mutter', artist: 'Rammstein', user: current_user) }
-    let(:other_album) { Fabricate(:album, title: 'Bright Lights', artist: 'Ellie Goulding', user: current_user) }
-    let(:similar_album) { Fabricate(:album, title: 'Wie Mutter und Tochter', artist: 'Badesalz', user: current_user) }
+    let(:album_search) { mock('album_search') }
 
-    context 'when searching for the title' do
-      before(:each) { search_for album.title }
+    it 'calls AlbumSearch and assigns the result' do
+      search_term = 'Something'
+      search_result = [1,2,3]
+      AlbumSearch.should_receive(:new).with(current_user).and_return(album_search)
+      album_search.should_receive(:search).with(search_term).and_return(search_result)
 
-      it 'finds the album with exact title' do
-        assigns(:albums).should include album
-      end
+      post :search, term: search_term, user_id: current_user.id
 
-      it 'finds the album with similar title' do
-        assigns(:albums).should include similar_album
-      end
-
-      it 'does not find the album with different title' do
-        assigns(:albums).should_not include other_album
-      end
-    end
-
-    context 'when searching for the artist' do
-      before(:each) { search_for album.artist }
-
-      it 'finds the album with the artist' do
-        assigns(:albums).should include album
-      end
-
-      it 'does not find the albums with different artists' do
-        assigns(:albums).should_not include other_album
-        assigns(:albums).should_not include similar_album
-      end
-    end
-
-    def search_for term
-      post :search, search: term, user_id: current_user.id
+      assigns(:albums).should == search_result
     end
   end
 end

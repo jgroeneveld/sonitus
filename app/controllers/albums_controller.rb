@@ -50,7 +50,8 @@ class AlbumsController < ApplicationController
   end
 
   def search
-    @albums = []
+    term = params.require(:term)
+    @albums = AlbumSearch.new(@user).search(term)
     render :index
   end
 
