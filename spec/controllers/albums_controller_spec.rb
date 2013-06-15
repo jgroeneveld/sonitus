@@ -54,6 +54,11 @@ describe AlbumsController do
       get :create, album: album_params, user_id: current_user.id
       response.should redirect_to user_albums_path(current_user)
     end
+
+    it 'rerenders the page if the record is not valid' do
+      get :create, album: { title: '' }, user_id: current_user.id
+      response.response_code.should == 200
+    end
   end
 
   describe '#edit' do
@@ -90,6 +95,11 @@ describe AlbumsController do
     it 'redirects to the albums of the user after success' do
       post :update, id: album.id, album: album_params, user_id: current_user.id
       response.should redirect_to user_albums_path(current_user)
+    end
+
+    it 'rerenders the page if the record is not valid' do
+      post :update, id: album.id, album: { title: '' }, user_id: current_user.id
+      response.response_code.should == 200
     end
   end
 
