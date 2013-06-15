@@ -121,7 +121,7 @@ describe AlbumsController do
       end
 
       it 'finds the album with similar title' do
-        passigns(:albums).should include similar_album
+        assigns(:albums).should include similar_album
       end
 
       it 'does not find the album with different title' do
@@ -133,7 +133,7 @@ describe AlbumsController do
       before(:each) { search_for album.artist }
 
       it 'finds the album with the artist' do
-        passigns(:albums).should include album
+        assigns(:albums).should include album
       end
 
       it 'does not find the albums with different artists' do

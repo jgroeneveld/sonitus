@@ -50,7 +50,8 @@ class AlbumsController < ApplicationController
   end
 
   def search
-
+    @albums = []
+    render :index
   end
 
   protected
