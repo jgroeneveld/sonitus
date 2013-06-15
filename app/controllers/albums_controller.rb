@@ -36,7 +36,7 @@ class AlbumsController < ApplicationController
     @album = @user.albums.find params[:id]
 
     if @album.update(album_params)
-      redirect_to user_albums_path(@user), :notice => 'Album was successfully updated.'
+      redirect_to user_albums_path(@user), :notice => t(:album_update_success)
     else
       render :action => "edit"
     end
@@ -50,9 +50,14 @@ class AlbumsController < ApplicationController
   end
 
   def search
-    term = params.require(:term)
-    @albums = AlbumSearch.new(@user).search(term)
-    render :index
+    if params[:term].nil? || params[:term].empty?
+      flash[:error] = t(:please_enter_a_search_term)
+      redirect_to user_albums_path(@user)
+    else
+      term = params.require(:term)
+      @albums = AlbumSearch.new(@user).search(term)
+      render :index
+    end
   end
 
   protected

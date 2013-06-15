@@ -30,6 +30,15 @@
   }
 }
 
-#albums-controls {
+#album-collection-controls {
   text-align: right;
+
+  #search_form {
+    label {
+      display: inline-block;
+    }
+    input {
+      display: inline-block;
+    }
+  }
 }
