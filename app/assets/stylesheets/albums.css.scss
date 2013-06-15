@@ -12,10 +12,13 @@
 
   .title {
     font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
   }
 
   .artist {
-
+    white-space: nowrap;
+    overflow: hidden;
   }
 
   .controls {
@@ -42,15 +45,19 @@
   }
 }
 
-#album-collection-controls {
+.album-collection-controls {
   margin-bottom: 1.5em;
 
-  #album-collection-menu {
+  .album-collection-menu {
     float: right;
     display: inline-block;
+
+    @media only screen and (max-width: 479px) {
+      margin-bottom: 0.5em;
+    }
   }
 
-  #search_form {
+  .search_form {
     display: inline-block;
 
     form {
@@ -67,6 +74,7 @@
     input[type=text] {
       @media only screen and (max-width: 767px) {
         width: 140px;
+        margin-bottom: 1.5em;
       }
       @media only screen and (max-width: 479px) {
         width: 195px;

@@ -1,12 +1,13 @@
 var Albums = {
   init: function() {
-    $('a#edit-albums').click(Albums.editAlbums);
-    // $('.album .controls .edit').click(Albums.editClicked);
+    $('a#edit-albums').click(function() { Albums.editAlbums(); return false; });
     $('.album .controls .delete a').bind('ajax:complete', Albums.deleteComplete);
   },
+
   editAlbums: function() {
     $('.album .controls').addClass('visible');
   },
+
   deleteComplete: function() {
     $(this).closest('.album').remove();
     if ($('.album').length == 0) {

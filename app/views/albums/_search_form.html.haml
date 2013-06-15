@@ -1,4 +1,4 @@
-#search_form
+.search_form
   = form_tag search_user_albums_path(user) do
     = label_tag :term, t(:search)
     = text_field_tag :term, params[:term]

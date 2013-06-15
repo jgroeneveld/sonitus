@@ -22,19 +22,19 @@ h1, h2, h3, h4, h5, h6 {
   padding: 0.5em 1em 0.5em 1em;
   margin-bottom: 0.5em;
 
-  &#error-flash {
+  &.error {
     background-color: rgb(242, 222, 222);
     border-color: rgb(238, 211, 215);
     color: rgb(185, 74, 72);
   }
 
-  &#notice-flash {
+  &.notice {
     background-color: rgb(223, 240, 216);
     border-color: rgb(214, 233, 198);
     color: rgb(70, 136, 71);
   }
 
-  &#alert-flash {
+  &.alert {
     background-color: rgb(252, 248, 227);
     border-color: rgb(251, 238, 213);
     color: rgb(192, 152, 83);
@@ -47,8 +47,8 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 1em;
 }
 
-#head {
-  #title {
+.head {
+  .title {
     min-height: 55px;
     background-image: url('/assets/sonitus.png');
     background-repeat: no-repeat;
@@ -56,7 +56,7 @@ h1, h2, h3, h4, h5, h6 {
     cursor: pointer;
   }
 
-  #user {
+  .user {
     text-align: right;
     display: inline-block;
   }

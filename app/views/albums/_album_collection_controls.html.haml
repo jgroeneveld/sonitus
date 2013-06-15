@@ -1,5 +1,5 @@
-#album-collection-controls.sixteen.columns.clearfix
+.album-collection-controls.sixteen.columns.clearfix
   = render partial: 'search_form', locals: {user: user}
-  #album-collection-menu
+  .album-collection-menu
     #{link_to t(:new_album), new_user_album_path(user)} -
-    #{link_to t(:edit_albums), '#', remote: true, id: 'edit-albums'}
+    #{link_to t(:edit_albums), '#', id: 'edit-albums'}

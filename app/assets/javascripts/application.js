@@ -19,7 +19,7 @@
 
   function onClickTitleGoToRoot () {
     var onLoad = function() {
-      $('#title').click(function() {
+      $('#page-title').click(function() {
         window.location.href = '/';
       });
     }
