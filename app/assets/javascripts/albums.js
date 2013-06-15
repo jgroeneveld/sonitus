@@ -10,7 +10,7 @@ var Albums = {
   deleteComplete: function() {
     $(this).closest('.album').remove();
     if ($('.album').length == 0) {
-      window.location.reload();
+      window.location = '/';
     };
   }
 };

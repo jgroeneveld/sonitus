@@ -31,14 +31,35 @@
 }
 
 #album-collection-controls {
-  text-align: right;
+  margin-bottom: 1.5em;
+
+  #album-collection-menu {
+    float: right;
+    display: inline-block;
+  }
 
   #search_form {
+    display: inline-block;
+
+    form {
+      margin-bottom: 0;
+    }
+
     label {
       display: inline-block;
     }
     input {
       display: inline-block;
+      margin-bottom: 0;
+    }
+    input[type=text] {
+      @media only screen and (max-width: 767px) {
+        width: 140px;
+      }
+      @media only screen and (max-width: 479px) {
+        width: 198px;
+        margin-bottom: 0.5em;
+      }
     }
   }
 }

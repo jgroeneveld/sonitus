@@ -3,8 +3,6 @@
 
 - if @albums.empty?
   .sixteen.columns
-    = t :no_albums_added_yet
-    - if current_users_collection?
-      \- #{link_to t(:add_one_now), new_user_album_path(@user)}
+    = t :no_albums_found
 - else
   = render @albums

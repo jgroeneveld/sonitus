@@ -56,7 +56,6 @@ class AlbumsController < ApplicationController
     else
       term = params.require(:term)
       @albums = AlbumSearch.new(@user).search(term)
-      render :index
     end
   end
 
