@@ -4,10 +4,18 @@
 
 .album {
   position: relative;
-  margin-top: 0.5em;
+  margin-bottom: 1em !important;
 
   img {
     width: 100%;
+  }
+
+  .title {
+    font-weight: bold;
+  }
+
+  .artist {
+
   }
 
   .controls {
@@ -15,12 +23,16 @@
 
     .edit {
       position: absolute;
+      background-color: white;
+      padding: 0 0.5em 0 0.5em;
       left: 5px;
       top: 5px;
     }
 
     .delete {
       position: absolute;
+      background-color: white;
+      padding: 0 0.5em 0 0.5em;
       right: 5px;
       top: 5px;
     }
@@ -57,7 +69,7 @@
         width: 140px;
       }
       @media only screen and (max-width: 479px) {
-        width: 198px;
+        width: 195px;
         margin-bottom: 0.5em;
       }
     }

@@ -66,7 +66,7 @@ class AlbumsController < ApplicationController
   end
 
   def album_params
-    params.require(:album).permit(:title, :year, :artist)
+    params.require(:album).permit(:title, :year, :artist, :image)
   end
 
   def set_user_to_current_user

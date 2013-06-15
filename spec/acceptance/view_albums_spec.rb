@@ -17,7 +17,8 @@ feature 'View albums' do
       album = Fabricate(:album, user: current_user)
       visit user_albums_path(current_user)
       page.should show_album album
-      page.should have_content album.long_title
+      page.should have_content album.title
+      page.should have_content album.artist
       page.should_not have_content I18n.t(:no_albums_added_yet)
     end
   end

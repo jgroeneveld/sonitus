@@ -33,6 +33,7 @@ gem 'haml-rails'
 gem 'devise', '3.0.0.rc'
 
 gem 'simple_form'
+gem 'carrierwave'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

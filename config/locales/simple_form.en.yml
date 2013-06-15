@@ -15,6 +15,7 @@ en:
         title: Title
         artist: Artist
         year: Year
+        image: Image
     # Labels and hints examples
     # labels:
     #   password: 'Password'
