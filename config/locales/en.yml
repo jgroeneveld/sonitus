@@ -26,3 +26,5 @@ en:
   add_one_now: Add one now
   confirm_album_delete: Are you sure you want to delete this Album?
   no_albums_added_yet: No albums added yet
+  search: Search
+  go: Go

@@ -49,6 +49,10 @@ class AlbumsController < ApplicationController
     render text: "OK"
   end
 
+  def search
+
+  end
+
   protected
 
   def current_users_collection?

@@ -3,7 +3,11 @@ Sonitus::Application.routes.draw do
   root 'albums#index'
 
   resources :users do
-    resources :albums
+    resources :albums do
+      collection do
+        post :search
+      end
+    end
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

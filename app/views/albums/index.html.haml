@@ -6,6 +6,7 @@
 - else
   - if current_users_collection?
     #albums-controls.sixteen.columns
-      #{link_to t(:new_album), new_user_album_path(@user)}
-      \- #{link_to t(:edit_albums), '#', remote: true, id: 'edit-albums'}
+      #{link_to t(:new_album), new_user_album_path(@user)} -
+      #{link_to t(:edit_albums), '#', remote: true, id: 'edit-albums'} -
+      = render partial: 'search_form'
   = render @albums
