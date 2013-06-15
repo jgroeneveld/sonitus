@@ -13,6 +13,10 @@
  *= require_tree .
  */
 
+h1, h2, h3, h4, h5, h6 {
+  font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
 .flash {
   border-radius: 4px;
   padding: 0.5em 1em 0.5em 1em;
@@ -75,7 +79,15 @@
   input[type="reset"],
   input[type="button"] {
     margin-bottom: 0;
-    margin-top: 1em;
+  }
+
+  input[type="file"] {
+    margin-bottom: 2em;
+  }
+
+  .image-preview {
+    margin-bottom: 1em;
+    max-width: 100%;
   }
 }
 
