@@ -43,7 +43,7 @@ feature 'Edit album collection' do
     before(:each) { enter_edit_mode_and_delete_album }
 
     scenario 'Asks for confirmation before deleting', js: true do
-      should_have_shown_confirm I18n.t(:confirm_album_delete)
+      page.should have_shown_confirm I18n.t(:confirm_album_delete)
     end
 
     scenario 'Deleted Album disappears on current page', js: true do
@@ -71,32 +71,11 @@ feature 'Edit album collection' do
     click_delete_button_for @album
   end
 
-  def show_album_edit_controls
-    have_selector '.album .controls.visible'
-  end
-
-  def show_album_edit_button
-    have_selector '.album .controls .edit'
-  end
-
-  def show_album_delete_button
-    have_selector '.album .controls .delete'
-  end
-
-  def show_album(album)
-    have_selector "#album_#{album.id}"
-  end
-
   def click_delete_button_for(album)
     page.find("#album_#{album.id} .delete").click
   end
 
   def click_edit_button_for(album)
     page.find("#album_#{album.id} .edit").click
-  end
-
-  def should_have_shown_confirm(msg)
-    page.driver.confirm_messages.should_not be_nil
-    page.driver.confirm_messages.should include msg
   end
 end

@@ -63,7 +63,7 @@ describe AlbumsController do
       assigns(:album).should == album
     end
 
-    it 'lets only albums of the current user to be edited' do
+    it 'allows only albums of the current user to be edited' do
       album = Fabricate(:album, user: other_user)
 
       expect {
