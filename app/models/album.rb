@@ -5,4 +5,6 @@ class Album < ActiveRecord::Base
   validates :artist, presence: true
   validates :title, presence: true
   validates :year, presence: true
+
+  default_scope { order('artist ASC') }
 end

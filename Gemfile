@@ -54,3 +54,6 @@ group :development, :test do
   gem 'terminal-notifier-guard'
   gem 'faker'
 end
+
+gem 'simplecov', :require => false, :group => :test
+
