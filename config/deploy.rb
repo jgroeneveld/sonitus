@@ -12,23 +12,26 @@ set :deploy_via, :remote_cache
 set :keep_releases, 5
 after "deploy:restart", "deploy:cleanup"
 
-# Thin
 namespace :deploy do
-    task :start, :roles => :app do
-        run "cd #{current_path} && bundle exec thin start -C /etc/thin/sonitus.yml"
-    end
+  task :start, :roles => :app do
+    run "cd #{current_path} && bundle exec thin start -C /etc/thin/sonitus.yml"
+  end
 
-    task :stop, :roles => :app do
-        run "cd #{current_path} && bundle exec thin stop -C /etc/thin/sonitus.yml"
-    end
+  task :stop, :roles => :app do
+    run "cd #{current_path} && bundle exec thin stop -C /etc/thin/sonitus.yml"
+  end
 
-    task :restart, :roles => :app do
-        run "cd #{current_path} && bundle exec thin restart -C /etc/thin/sonitus.yml"
-    end
+  task :restart, :roles => :app do
+    run "cd #{current_path} && bundle exec thin restart -C /etc/thin/sonitus.yml"
+  end
+
+  task :symlink_uploads do
+    run "ln -nfs #{shared_path}/uploads #{release_path}/public/uploads"
+  end
 end
 
-
 after 'deploy:update_code', 'deploy:migrate'
+after 'deploy:update_code', 'deploy:symlink_uploads'
 
 require 'rvm/capistrano'
 require "bundler/capistrano"
