@@ -1,7 +1,7 @@
 -# locals: user
 
 .search_form
-  = form_tag search_user_albums_path(user) do
+  = form_tag search_user_albums_path(user), method: 'get' do
     = label_tag :term, t(:search)
     = text_field_tag :term, params[:term]
     = submit_tag t(:go)

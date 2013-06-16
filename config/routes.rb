@@ -5,7 +5,7 @@ Sonitus::Application.routes.draw do
   resources :users do
     resources :albums do
       collection do
-        post :search
+        get :search
       end
     end
   end

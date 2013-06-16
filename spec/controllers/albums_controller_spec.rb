@@ -127,13 +127,13 @@ describe AlbumsController do
       AlbumSearch.should_receive(:new).with(current_user).and_return(album_search)
       album_search.should_receive(:search).with(search_term).and_return(search_result)
 
-      post :search, term: search_term, user_id: current_user.id
+      get :search, term: search_term, user_id: current_user.id
 
       assigns(:albums).should == search_result
     end
 
     it 'flashes an error if no term entered' do
-      post :search, term: '', user_id: current_user.id
+      get :search, term: '', user_id: current_user.id
       response.should redirect_to user_albums_path(current_user)
       flash[:error].should == I18n.t(:please_enter_a_search_term)
     end
