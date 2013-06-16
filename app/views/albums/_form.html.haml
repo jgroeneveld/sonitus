@@ -1,8 +1,10 @@
+-# locals: user, album
+
 .form-box
   %h2= t("#{params[:action]}_album")
 
-  = simple_form_for [@user, @album], html: { multipart: true } do |f|
-    = image_tag @album.image_url, class: 'image-preview'  if !@album.image.nil?
+  = simple_form_for [user, album], html: { multipart: true } do |f|
+    = image_tag album.image_url, class: 'image-preview'  if !album.image.nil?
     = f.input :artist
     = f.input :title
     = f.input :year

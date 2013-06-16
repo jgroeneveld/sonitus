@@ -4,5 +4,5 @@
   .artist= album.artist
 
   .controls
-    .edit= link_to t(:edit), edit_user_album_path(@user, album)
-    .delete= link_to t(:delete), user_album_path(@user, album), method: :delete, remote: true, data: { confirm: t(:confirm_album_delete) }
+    .edit= link_to t(:edit), edit_user_album_path(album.user, album)
+    .delete= link_to t(:delete), user_album_path(album.user, album), method: :delete, remote: true, data: { confirm: t(:confirm_album_delete) }
