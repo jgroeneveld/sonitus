@@ -53,7 +53,11 @@ group :development, :test do
   gem 'rb-fsevent'
   gem 'terminal-notifier-guard'
   gem 'faker'
+  gem 'capistrano'
+  gem 'rvm-capistrano'
 end
+
+gem 'thin'
 
 gem 'simplecov', :require => false, :group => :test
 
