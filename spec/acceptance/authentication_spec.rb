@@ -81,4 +81,18 @@ feature 'Authentication' do
     end
   end
 
+  context 'when logged in' do
+    scenario 'User is greeted when logged in' do
+      user_is_logged_in
+      visit '/'
+      page.should have_content "Moin #{current_user.username}"
+    end
+  end
+
+  context 'when logged out' do
+    scenario 'Not logged in' do
+      visit '/'
+      current_path.should eq '/users/sign_in'
+    end
+  end
 end

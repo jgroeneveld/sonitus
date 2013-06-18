@@ -1,6 +1,6 @@
 require 'acceptance/acceptance_helper'
 
-feature 'Search my albums' do
+feature 'Search for albums' do
   background do
     user_is_logged_in
     @album = Fabricate(:album, title: 'Mutter', artist: 'Rammstein', user: current_user)
