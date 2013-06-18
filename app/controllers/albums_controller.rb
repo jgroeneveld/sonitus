@@ -1,5 +1,6 @@
 class AlbumsController < ApplicationController
   before_action :authenticate_user!
+
   before_action :set_user_to_current_user, except: :index
 
   helper_method :current_users_collection?
@@ -15,7 +16,8 @@ class AlbumsController < ApplicationController
   end
 
   def show
-    @album = Album.find params[:id]
+    @user = User.find params[:user_id]
+    @album = @user.albums.find params[:id]
   end
 
   def new
