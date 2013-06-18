@@ -1,5 +1,5 @@
 # ueberschreibt den speicherpfad der bilder und loescht nach der spec ausfuehrung diesen wieder
-
+AlbumImageUploader
 class AlbumImageUploader < CarrierWave::Uploader::Base
   def store_dir
     Rails.root.join("spec", "support", "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}")

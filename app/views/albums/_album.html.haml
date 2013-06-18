@@ -1,5 +1,5 @@
 .album.four.columns{id: "album_#{album.id}"}
-  = image_tag album.image_url || 'http://placehold.it/420x420'
+  = link_to image_tag(album.image.for_collection.url || 'http://placehold.it/220x220'), user_album_path(album.user, album)
   .title= album.title
   .artist= album.artist
 

@@ -2,13 +2,11 @@
 # https://github.com/jnicklas/capybara#asynchronous-javascript-ajax-and-friends
 
 RSpec::Matchers.define :show_album do |album|
-  selector = "#album_#{album.id}"
-
   match_for_should do |page|
-    page.has_selector? selector
+    page.has_selector? album_selector(album)
   end
 
   match_for_should_not do |page|
-    page.has_no_selector? selector
+    page.has_no_selector? album_selector(album)
   end
 end

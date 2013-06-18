@@ -1,0 +1,11 @@
+.album-details.ten.columns.offset-by-three
+  = image_tag @album.image_url
+
+  %h2= "#{@album.artist} - #{@album.title}"
+
+  .details
+    .year #{t :year}: #{@album.year}
+
+  .creator_details
+    .user #{t :user}: #{@album.user.username}
+    .created_at #{t :created_at}: #{l @album.created_at, format: :short}

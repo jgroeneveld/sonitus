@@ -34,6 +34,7 @@ gem 'devise', '3.0.0.rc'
 
 gem 'simple_form', '~> 3.0.0.rc'
 gem 'carrierwave'
+gem 'rmagick'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

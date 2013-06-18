@@ -11,6 +11,10 @@ module HelperMethods
   def sft(scope, key)
     I18n.t(key, scope: [:simple_form, :labels, scope])
   end
+
+  def album_selector(album)
+    "#album_#{album.id}"
+  end
 end
 
 RSpec.configuration.include HelperMethods, :type => :acceptance

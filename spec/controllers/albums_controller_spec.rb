@@ -138,4 +138,12 @@ describe AlbumsController do
       flash[:error].should == I18n.t(:please_enter_a_search_term)
     end
   end
+
+  describe '#show' do
+    it 'assigns the album' do
+      album = Fabricate(:album, user: current_user)
+      get :show, id: album.id, user_id: current_user.id
+      assigns(:album).should == album
+    end
+  end
 end
