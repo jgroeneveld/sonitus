@@ -1,7 +1,12 @@
 README
 =======
-An simple application to keep track of one's music collection.
+Sonitus is a simple application to keep track of one's music collection.
 
+* Deployed on [sonitus.jgroeneveld.de](http://sonitus.jgroeneveld.de)
+* Testuser with some albums: maxmuster@example.com / 12345678
+
+Versions
+-------
 * Ruby: 2.0.0
 * Rails: 4.0.0rc2
 
