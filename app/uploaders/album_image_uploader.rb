@@ -10,7 +10,7 @@ class AlbumImageUploader < CarrierWave::Uploader::Base
   end
 
   def default_url
-    if version_name == 'for_collection'
+    if version_name == :for_collection
       "http://placehold.it/220x220"
     else
       "http://placehold.it/580x580"

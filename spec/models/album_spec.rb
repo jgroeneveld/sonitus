@@ -25,5 +25,11 @@ describe Album do
 
       album.image.for_collection.should have_dimensions(220, 220)
     end
+
+    it 'has a default url' do
+      album = Album.new
+      album.image.url.should == 'http://placehold.it/580x580'
+      album.image.for_collection.url.should == 'http://placehold.it/220x220'
+    end
   end
 end
