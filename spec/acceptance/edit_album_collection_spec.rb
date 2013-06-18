@@ -72,10 +72,10 @@ feature 'Edit album collection' do
   end
 
   def click_delete_button_for(album)
-    page.find("#album_#{album.id} .delete").click
+    page.find("#{album_search(album)} .delete").click
   end
 
   def click_edit_button_for(album)
-    page.find("#album_#{album.id} .edit").click
+    page.find("#{album_search(album)} .edit").click
   end
 end
