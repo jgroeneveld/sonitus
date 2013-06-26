@@ -28,9 +28,9 @@ class AlbumsController < ApplicationController
     @album = Album.new album_params.merge(user: @user)
 
     if @album.save
-      redirect_to user_albums_path(@user), :notice => 'Album was successfully created.'
+      redirect_to user_albums_path(@user), notice: 'Album was successfully created.'
     else
-      render :action => "new"
+      render action: 'new'
     end
   end
 
@@ -42,9 +42,9 @@ class AlbumsController < ApplicationController
     @album = @user.albums.find params[:id]
 
     if @album.update(album_params)
-      redirect_to user_albums_path(@user), :notice => t(:album_update_success)
+      redirect_to user_albums_path(@user), notice: t(:album_update_success)
     else
-      render :action => "edit"
+      render action: 'edit'
     end
   end
 
@@ -52,7 +52,7 @@ class AlbumsController < ApplicationController
     @album = @user.albums.find params[:id]
 
     @album.destroy
-    render text: "OK"
+    render text: 'OK'
   end
 
   def search

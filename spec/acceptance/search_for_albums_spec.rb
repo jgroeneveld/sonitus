@@ -44,7 +44,7 @@ feature 'Search for albums' do
     end
   end
 
-  def search_for term
+  def search_for(term)
     visit user_albums_path(current_user)
     fill_in I18n.t(:search), with: term
     click_button I18n.t(:go)

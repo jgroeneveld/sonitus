@@ -1,5 +1,5 @@
 RSpec::Matchers.define :show_album_edit_controls do
-  selector ='.album .controls.visible'
+  selector = '.album .controls.visible'
 
   match_for_should do |page|
     page.has_selector? selector

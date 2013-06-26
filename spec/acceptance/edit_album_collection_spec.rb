@@ -20,7 +20,6 @@ feature 'Edit album collection' do
     page.should show_album_delete_button
   end
 
-
   context 'Editing an Album' do
     scenario 'Clicking Edit Button', js: true do
       visit user_albums_path(current_user)
@@ -59,7 +58,6 @@ feature 'Edit album collection' do
       page.should have_link I18n.t(:add_one_now), href: new_user_album_path(current_user)
     end
   end
-
 
   private
 

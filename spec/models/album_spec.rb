@@ -16,7 +16,7 @@ describe Album do
     end
 
     it 'defaults to a size of 580x580' do
-      album.image.should have_dimensions(580,580)
+      album.image.should have_dimensions(580, 580)
     end
 
     it 'saves a for_collection version of the image' do

@@ -11,7 +11,7 @@ feature 'Create album' do
   end
 
   scenario 'Filled albumspage has simpler link to create an album' do
-    album = Fabricate(:album, user: current_user)
+    Fabricate(:album, user: current_user)
     visit user_albums_path(current_user)
     page.should have_link I18n.t(:new_album), href: new_user_album_path(current_user)
   end

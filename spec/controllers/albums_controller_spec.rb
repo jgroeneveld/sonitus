@@ -1,10 +1,10 @@
 require 'spec_helper'
 
 describe AlbumsController do
-  before(:each) {
+  before(:each) do
     @current_user = Fabricate :user_with_albums
     sign_in @current_user
-  }
+  end
 
   let(:current_user) { @current_user }
   let(:other_user) { Fabricate :user }
@@ -123,7 +123,7 @@ describe AlbumsController do
 
     it 'calls AlbumSearch and assigns the result' do
       search_term = 'Something'
-      search_result = [1,2,3]
+      search_result = [1, 2, 3]
       AlbumSearch.should_receive(:new).with(current_user).and_return(album_search)
       album_search.should_receive(:search).with(search_term).and_return(search_result)
 
